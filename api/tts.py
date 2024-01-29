@@ -35,11 +35,11 @@ def generate_speech(text, person):
 
     # print(f"The speech was generated for {result_person}.")
     # Create an in-memory buffer to hold the speech data
-    speech_buffer = "output.wav"
+    output_file = "output_file.wav"
 
     # Write the speech data to the buffer
-    sf.write(speech_buffer, speech.numpy(), samplerate=16000, format='wav', subtype='PCM_16')
+    sf.write(output_file, speech.numpy(), samplerate=16000, format='wav', subtype='PCM_16')
 
     # Return the in-memory buffer
-    return speech_buffer
+    return output_file
 

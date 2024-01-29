@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file 
-from apis import generate_speech 
+from tts import generate_speech 
 
 app = Flask(__name__)
 
@@ -18,10 +18,10 @@ def tts():
         person = data.get('person')
 
         # Call generate_speech function
-        result_person = generate_speech(text, person)
+        result_file = generate_speech(text, person)
 
         # Send the generated file back in the response
-        return send_file(result_person, as_attachment=True)
+        return send_file(result_file, as_attachment=True)
 
     except Exception as e:
         # Handle exceptions and return an error response
