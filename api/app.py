@@ -7,26 +7,26 @@ app = Flask(__name__)
 def hello():
     return 'Hello, from tts!'
 
-@app.route('/tts', methods=['POST'])
-def tts():
-    try:
-        # Get data from the JSON payload of the POST request
-        data = request.get_json()
+# @app.route('/tts', methods=['POST'])
+# def tts():
+#     try:
+#         # Get data from the JSON payload of the POST request
+#         data = request.get_json()
 
-        # Extract text and person from the request data
-        text = data.get('text')
-        person = data.get('person')
+#         # Extract text and person from the request data
+#         text = data.get('text')
+#         person = data.get('person')
 
-        # Call generate_speech function
-        result_file = generate_speech(text, person)
+#         # Call generate_speech function
+#         result_file = generate_speech(text, person)
 
-        # Send the generated file back in the response
-        return send_file(result_file, as_attachment=True)
+#         # Send the generated file back in the response
+#         return send_file(result_file, as_attachment=True)
 
-    except Exception as e:
-        # Handle exceptions and return an error response
-        print(f"Error: {e}")
-        return {"error": "Internal Server Error"}, 500
+#     except Exception as e:
+#         # Handle exceptions and return an error response
+#         print(f"Error: {e}")
+#         return {"error": "Internal Server Error"}, 500
 
 
 if __name__ == '__main__':
